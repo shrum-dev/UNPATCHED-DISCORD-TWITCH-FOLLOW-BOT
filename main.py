@@ -22,34 +22,35 @@ x6 = "Silver"
 x3 = "Premium"
 x4 = "Premium +"
 
-def get_username(channel_name):chat
-
-    json= disnake
+import disnake
 from disnake.ext import commands
 import time
 import threading
 import requests
 import random
 import socks
-            "variables": {
-                "login": chat
-            },
-            "extensions": {
-                "persistedQuery": {
-                    "version": 1,
-                    "sha256Hash": "580ab410bcd0c1ad194224957ae2241e5d252b2c5173d8e0cce9d32d5bb14efe"
+
+def get_username(channel_name):
+        json = {"operationName": "ChannelShell",
+                "variables": {
+                    "login": channel_name
+                },
+                "extensions": {
+                    "persistedQuery": {
+                        "version": 1,
+                        "sha256Hash": "580ab410bcd0c1ad194224957ae2241e5d252b2c5173d8e0cce9d32d5bb14efe"
+                    }
                 }
             }
-        }
 
-    headers = {
-        'Client-ID': 'kimne78kx3ncx6brgo4mv6wki5h1ko'
-    }
-    try:
-        r = requests.post('https://gql.twitch.tv/gql', json=json, headers=headers)
-        return r.json()['data']['userOrError']['id']
-    except:
-        return None
+        headers = {
+            'Client-ID': 'kimne78kx3ncx6brgo4mv6wki5h1ko'
+        }
+        try:
+            r = requests.post('https://gql.twitch.tv/gql', json=json, headers=headers)
+            return r.json()['data']['userOrError']['id']
+        except:
+            return None
 
 def follower(target_id):
     try:
