@@ -15,6 +15,8 @@ intents = disnake.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
 discord = disnake
 
+followsent = 0
+
 x1 = "Bronze"
 x2 = "Gold"
 x5 = "Diamond"
